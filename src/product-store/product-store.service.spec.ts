@@ -143,6 +143,18 @@ describe('ProductStoreService', () => {
             'message', 'El producto con id 0 no existe');
     });
 
+    it('updateStoresFromProduct should throw an exception when store does not exist', async () => {
+        const store: StoreEntity = {
+            name: faker.commerce.productName(),
+            city: faker.string.alpha({ length: 3, casing: 'upper' }),
+            address: faker.location.streetAddress(),
+            id: 0,
+            products: []
+        }
+        await expect(()=> service.updateStoresFromProduct(product.id, [store])).rejects.toHaveProperty(
+            'message', 'La tienda con id 0 no existe');
+    });
+
     it('deleteStoreFromProduct should delete store from a product', async () => {
         const storedProduct = product;
         const store = storeList[0];
