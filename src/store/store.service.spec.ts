@@ -30,7 +30,7 @@ describe('StroreService', () => {
         for (let i = 0; i < 5; i++) {
             const store = await repositoryStore.save({
                 name: faker.commerce.productName(),
-                city: faker.random.alpha({ count: 3, casing: 'upper' }),
+                city: faker.string.alpha({ length: 3, casing: 'upper' }),
                 address: faker.location.streetAddress(),
             });
             storeList.push(store);
@@ -66,8 +66,8 @@ describe('StroreService', () => {
         const store: StoreEntity = {
             id: 0,
             name: faker.commerce.productName(),
-            city: faker.random.alpha({ count: 3, casing: 'upper' }),
-            address: faker.address.streetAddress(),
+            city: faker.string.alpha({ length: 3, casing: 'upper' }),
+            address: faker.location.streetAddress(),
             products: [],
         };
         const result: StoreEntity = await service.create(store);
@@ -83,7 +83,7 @@ describe('StroreService', () => {
             id: 0,
             name: faker.commerce.productName(),
             city: 'BO',
-            address: faker.address.streetAddress(),
+            address: faker.location.streetAddress(),
             products: [],
         };
         await expect(() => service.create(store)).rejects.toHaveProperty(
@@ -97,8 +97,8 @@ describe('StroreService', () => {
         const store: StoreEntity = {
             id: storedStore.id,
             name: faker.commerce.productName(),
-            city: faker.random.alpha({ count: 3, casing: 'upper' }),
-            address: faker.address.streetAddress(),
+            city: faker.string.alpha({ length: 3, casing: 'upper' }),
+            address: faker.location.streetAddress(),
             products: [],
         };
         const result: StoreEntity = await service.update(store.id, store);
@@ -113,8 +113,8 @@ describe('StroreService', () => {
         const store: StoreEntity = {
             id: 0,
             name: faker.commerce.productName(),
-            city: faker.random.alpha({ count: 3, casing: 'upper' }),
-            address: faker.address.streetAddress(),
+            city: faker.string.alpha({ length: 3, casing: 'upper' }),
+            address: faker.location.streetAddress(),
             products: [],
         };
         await expect(() => service.update(store.id, store)).rejects.toHaveProperty(
@@ -128,8 +128,8 @@ describe('StroreService', () => {
         const store: StoreEntity = {
             id: storedStore.id,
             name: faker.commerce.productName(),
-            city: faker.random.alpha({ count: 2, casing: 'upper' }),
-            address: faker.address.streetAddress(),
+            city: faker.string.alpha({ length: 2, casing: 'upper' }),
+            address: faker.location.streetAddress(),
             products: [],
         };
         await expect(() => service.update(store.id, store)).rejects.toHaveProperty(
