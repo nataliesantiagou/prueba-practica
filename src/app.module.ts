@@ -6,9 +6,10 @@ import { StoreModule } from './store/store.module';
 import {ProductEntity} from "./product/product.entity";
 import {StoreEntity} from "./store/store.entity";
 import {TypeOrmModule} from "@nestjs/typeorm";
+import {ProductStoreModule} from "./product-store/product-store.module";
 
 @Module({
-  imports: [ProductModule, StoreModule,
+  imports: [ProductModule, StoreModule, ProductStoreModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
