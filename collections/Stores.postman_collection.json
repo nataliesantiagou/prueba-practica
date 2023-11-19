@@ -620,12 +620,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/products/0000",
+							"raw": "{{baseUrl}}/stores/0000",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"products",
+								"stores",
 								"0000"
 							]
 						}
